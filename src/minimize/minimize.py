@@ -38,4 +38,6 @@ def minimize(function: list[float|int], conditions: list[list[float|int]]) -> An
     # Проверяем есть ли у нас условия на равенство
     lhs_eq = None if len(lhs_eq) == 0 else lhs_eq
     rhs_eq = None if len(rhs_eq) == 0 else rhs_eq
-    return linprog(c=obj, A_ub=lhs_ineq, b_ub=rhs_ineq, A_eq=lhs_eq, b_eq=rhs_eq, bounds=bnd)
+    # Получаем результат оптимизации
+    opt_result = linprog(c=obj, A_ub=lhs_ineq, b_ub=rhs_ineq, A_eq=lhs_eq, b_eq=rhs_eq, bounds=bnd)
+    return f"Минимум функции: {opt_result.get('fun', 'Не найден')}\n\nТочка минимума: {opt_result.get('x', 'Не найдена')}"
