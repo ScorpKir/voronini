@@ -20,6 +20,7 @@ class ScrollableLabelFrame(ctk.CTkScrollableFrame):
         super().__init__(master, **kwargs)
         self.label_list = deepcopy(item_list)
 
+
     def add_item(self, item: str) -> None:
         """
         Добавляет элемент в список
@@ -47,6 +48,7 @@ class ScrollableLabelFrame(ctk.CTkScrollableFrame):
                 label.destroy()
                 self.label_list.remove(label)
                 return
+            
             
     def get_list_items(self) -> None:
         """ Получаем список элементов """

@@ -55,7 +55,7 @@ def parse_condition(condition: str) -> bool:
     try:
         c = float(parts[-1])
         sign = parts[3]
-        if sign not in ('<', '<=', '>', '>=', '='):
+        if sign not in ('<=', '='):
             return False
         expression = ''.join(parts[0:3])
         x, y = sp.symbols('x y')
